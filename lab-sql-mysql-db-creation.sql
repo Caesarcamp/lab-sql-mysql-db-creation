@@ -83,4 +83,44 @@ INSERT INTO invoices (invoice_number, date, car_id, customer_id, salesperson_id)
 ('731166526', '2018-12-31', 3, 3, 5),
 ('271135104', '2019-01-22', 2, 2, 7);
 
+-- BONUS: UPDATE y DELETE en las tablas del concesionario
+-- ===============================================
+
+-- UPDATEs
+-- 1. Actualizar el color de un coche específico
+UPDATE cars
+SET color = 'Negro'
+WHERE id = 1;
+
+-- 2. Cambiar el email de un cliente
+UPDATE customers
+SET cust_email = 'picasso@example.com'
+WHERE cust_id = 10001;
+
+-- 3. Modificar el salario de un vendedor
+UPDATE salespersons
+SET salary = salary + 5000
+WHERE id = 2;
+
+-- 4. Cambiar el importe de una factura
+UPDATE invoices
+SET amount = amount * 1.10   -- Aumenta un 10% el importe
+WHERE id = 3;
+
+-- DELETEs
+-- 5. Eliminar una factura específica
+DELETE FROM invoices
+WHERE id = 4;
+
+-- 6. Eliminar un coche que ya no está disponible
+DELETE FROM cars
+WHERE id = 5;
+
+-- 7. Borrar un cliente (solo si no tiene facturas pendientes)
+DELETE FROM customers
+WHERE cust_id = 10002;
+
+-- 8. Borrar un vendedor sin ventas asignadas
+DELETE FROM salespersons
+WHERE id = 3;
 
